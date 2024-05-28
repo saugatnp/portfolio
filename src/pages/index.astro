@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import About from './about.astro';
 
 ---
 
 <BaseLayout>
 	<div class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts">
 		<div class="col-sm-5 offset-2" style="z-index:15;">
-			<p class="index-intro-title">Hi, my name is <br/> <b>SAUGAT</b>.</p>
+			<p class="index-intro-title primary-text">Hi, my name is <br/> <b>SAUGAT</b>.</p>
 			<p class="index-intro-subtitle">I'm a frontend developer from Kathmandu, Nepal.</p>
 			<p class="index-scroll text-center">S C R O L L</p>
 		</div>
@@ -20,4 +21,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<div class="copyright">
 		<p>&copy; Saugat Adhikari. All rights reserved.</p>
 	</div>
+
+
+	<section style="margin-top:30vh" id="about">
+		<About />
+	</section>
 </BaseLayout>

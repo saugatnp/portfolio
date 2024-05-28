@@ -14,10 +14,11 @@ import "bootstrap/dist/css/bootstrap.css";
 		<title>Saugat Adhikari</title>
 	</head>
 	<body>
-		<div class="body-container d-flex flex-column">
+		<div class="body-container d-flex flex-column" id="body-container">
 			<Header />
 			<slot />
-			<Bottomnavigation />
 		</div>
+		<Bottomnavigation />
+
 	</body>
 </html>

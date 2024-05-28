@@ -2,46 +2,82 @@
 import { Icon } from "astro-icon/components";
 ---
 
+<script>
+    const tgt = document.querySelector("#top-btn");
+    tgt?.addEventListener("click", () => {
+        document
+            .querySelector("#body-container")
+            ?.scrollTo({ top: 0, behavior: "smooth" });
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const aboutSection = document.getElementById("about");
+        const aboutLink = document.querySelector('a[href="#about"]');
+
+        const options = {
+            root: null, // Use the viewport as the root
+            threshold: 0.5, // Adjust the threshold as needed
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    aboutLink?.classList.add("active-b-nav");
+                } else {
+                    aboutLink?.classList.remove("active-b-nav");
+                }
+            });
+        }, options);
+
+        observer.observe(aboutSection!);
+    });
+</script>
+
 <div class="bottom-nav">
     <div class="d-flex align-items-center h-100 w-100">
-        <div class="circle bg-shadow h-100 d-flex justify-content-center align-items-center me-3">
+        <div
+            class="circle inverted-primary-bg primary-bg-color bg-shadow h-100 d-flex justify-content-center align-items-center me-3"
+            id="top-btn"
+        >
             <ul class="nav justify-content-end h-100 align-items-center">
-                <li class="nav-item">
-                    <a class="b-nav-link" href="/index.html">
-                        <Icon name="UpArrow" />
+                <li class="nav-item d-flex align-items-center">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center">
+                        <Icon name="UpArrow" class="inverted-primary-bg" />
                         <span class="tooltip">Move&nbsp;to&nbsp;Top&nbsp;</span>
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="circular-border bg-shadow h-100 w-auto">
+        <div class="circular-border secondary-bg-color bg-shadow h-100 w-auto">
             <ul class="nav justify-content-end h-100 align-items-center">
-                <li class="nav-item mx-3">
-                    <a class="b-nav-link" href="/index.html">
+                <li class="nav-item d-flex align-items-center ms-2">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="#about">
                         <Icon name="Account" />
                         <span class="tooltip">About</span>
                     </a>
                 </li>
-                <li class="nav-item mx-3">
-                    <a class="b-nav-link" href="/index.html">
+                <li class="nav-item d-flex align-items-center ms-2">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
                         <Icon name="Briefcase" />
                         <span class="tooltip">Career</span>
                     </a>
                 </li>
-                <li class="nav-item mx-3">
-                    <a class="b-nav-link" href="/index.html">
+                <li class="nav-item d-flex align-items-center ms-2">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
                         <Icon name="Skill" />
                         <span class="tooltip">Skills</span>
                     </a>
                 </li>
-                <li class="nav-item mx-3">
-                    <a class="b-nav-link" href="/index.html">
+                <li class="nav-item d-flex align-items-center ms-2">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
                         <Icon name="Code" />
                         <span class="tooltip">Projects</span>
                     </a>
                 </li>
-                <li class="nav-item mx-3">
-                    <a class="b-nav-link" href="/index.html">
+                <li class="nav-item d-flex align-items-center ms-2 me-2">
+                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
                         <Icon name="Contact" />
                         <span class="tooltip">Contact</span>
                     </a>
