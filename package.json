@@ -10,8 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.9.1",
     "@astrojs/check": "^0.7.0",
+    "@popperjs/core": "^2.11.8",
+    "@types/bootstrap": "^5.2.10",
+    "astro": "^4.9.1",
+    "astro-icon": "^1.1.0",
+    "bootstrap": "^5.3.3",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.66"
   }
 }

@@ -1,0 +1,23 @@
+---
+import Bottomnavigation from "../components/bottomnavigation.astro";
+import Header from "../components/header.astro";
+import "../styles/global.css";
+import "bootstrap/dist/css/bootstrap.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Saugat Adhikari</title>
+	</head>
+	<body>
+		<div class="body-container d-flex flex-column">
+			<Header />
+			<slot />
+			<Bottomnavigation />
+		</div>
+	</body>
+</html>

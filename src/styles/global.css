@@ -1,0 +1,187 @@
+:root {
+    --primary-dark-bg-color: #333333;
+    --secondary-dark-bg-color: #555555;
+    --dark-text-color: #a9c52f;
+    --dark-blurred-text-color: #6d6d6d;
+    --dark-bg-white: #f8f8f8;
+    --dark-box-shadow-color: rgba(36, 36, 36, 0.9);
+    --dark-img-shadow-color: rgba(39, 39, 39, 0.7);
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100% - 40px);
+    margin: 20px !important;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--secondary-dark-bg-color) !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-container {
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    background-color: var(--primary-dark-bg-color);
+    color: white;
+    position: relative;
+    border-radius: 5px;
+}
+
+.logo {
+    height: 60px;
+    margin: 30px 60px;
+}
+
+.social-svg-icon {
+    height: 1em;
+    margin: 1em;
+    color: var(--dark-text-color)
+}
+
+.nav-link>svg {
+    transform: scale(1.6);
+    color: var(--dark-text-color);
+}
+
+.nav-link::after {
+    content: " ";
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+    margin: 0 15px;
+    background: #b1b1b1;
+    border-radius: 5px;
+}
+
+.index-intro-title {
+    font-size: 4.5em;
+    font-family: Bitter, serif;
+}
+
+.index-intro-subtitle {
+    font-size: 2em;
+    font-family: Bitter, serif;
+}
+
+.index-scroll {
+    margin-top: 15em;
+    position: relative;
+    color: var(--dark-blurred-text-color);
+}
+
+.index-scroll::after {
+    content: "";
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.1em;
+    height: 200px;
+    background-color: var(--dark-blurred-text-color);
+}
+
+.copyright {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    transform-origin: bottom left;
+    transform: rotate(-90deg) translateY(100%);
+    white-space: nowrap;
+    color: var(--dark-blurred-text-color);
+}
+
+.index-texts {
+    position: relative;
+}
+
+.index-texts::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 40%;
+    border-radius: 10px;
+    z-index: 10;
+    background: repeating-linear-gradient(-45deg, var(--secondary-dark-bg-color) 1px, var(--primary-dark-bg-color) 4px, var(--primary-dark-bg-color) 9px, var(--secondary-dark-bg-color) 10px);
+}
+
+.img-fluid {
+    -webkit-filter: drop-shadow(5px 5px 10px var(--dark-img-shadow-color)) drop-shadow(-5px -5px 10px var(--dark-img-shadow-color));
+    filter: drop-shadow(45px 10px 10px var(--dark-img-shadow-color)) drop-shadow(-25px 10px 10px var(--dark-img-shadow-color)) drop-shadow(-6px -5px 10px var(--dark-img-shadow-color)) drop-shadow(-5px -5px 10px var(--dark-img-shadow-color));
+
+}
+
+.bottom-nav {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3em;
+    width: auto;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    background-color: var(--secondary-dark-bg-color);
+}
+
+.circular-border {
+    border-radius: 50px;
+    background-color: var(--secondary-dark-bg-color);
+}
+
+.b-nav-link {
+    position: relative;
+    text-align: center;
+}
+
+.b-nav-link>svg {
+    transform: scale(1.5);
+    color: var(--dark-text-color)
+}
+
+.bg-shadow {
+    box-shadow: 0 0 20px var(--dark-box-shadow-color) !important;
+}
+
+.tooltip {
+    visibility: visible;
+    background-color: var(--secondary-dark-bg-color);
+    color: var(--dark-text-color);
+    text-align: center;
+    padding: 0.8em 1.5em;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 100;
+    bottom: 200%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    text-wrap: nowrap;
+}
+
+.b-nav-link:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.b-nav-link:hover .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--secondary-dark-bg-color) transparent transparent transparent;
+}

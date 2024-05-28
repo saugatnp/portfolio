@@ -1,16 +1,23 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<div class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts">
+		<div class="col-sm-5 offset-2" style="z-index:15;">
+			<p class="index-intro-title">Hi, my name is <br/> <b>SAUGAT</b>.</p>
+			<p class="index-intro-subtitle">I'm a frontend developer from Kathmandu, Nepal.</p>
+			<p class="index-scroll text-center">S C R O L L</p>
+		</div>
+		<div class="col-sm-3" style="z-index:15;">
+			<img src="/assets/images/picture.png" alt="Saugat Adhikari" class="img-fluid rounded-circle" />
+		</div>
+		<div class="col-sm-2">
+			&nbsp;
+		</div>
+	</div>
+	<div class="copyright">
+		<p>&copy; Saugat Adhikari. All rights reserved.</p>
+	</div>
+</BaseLayout>
