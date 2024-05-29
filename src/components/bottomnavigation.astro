@@ -16,22 +16,33 @@ import { Icon } from "astro-icon/components";
         const aboutSection = document.getElementById("about");
         const aboutLink = document.querySelector('a[href="#about"]');
 
+        const careerSection = document.getElementById("career");
+        const careerLink = document.querySelector('a[href="#career"]');
+
         const options = {
-            root: null, // Use the viewport as the root
-            threshold: 0.5, // Adjust the threshold as needed
+            root: null,
+            threshold: 0.5,
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const handleIntersection = (entries : IntersectionObserverEntry[], link : Element) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    aboutLink?.classList.add("active-b-nav");
+                    link?.classList.add("active-b-nav");
                 } else {
-                    aboutLink?.classList.remove("active-b-nav");
+                    link?.classList.remove("active-b-nav");
                 }
             });
-        }, options);
+        };
 
-        observer.observe(aboutSection!);
+        const createObserver = (section : HTMLElement, link : Element) => {
+            const observer = new IntersectionObserver((entries) => {
+                handleIntersection(entries, link);
+            }, options);
+            observer.observe(section);
+        };
+
+        createObserver(aboutSection!, aboutLink!);
+        createObserver(careerSection!, careerLink!);
     });
 </script>
 
@@ -43,7 +54,9 @@ import { Icon } from "astro-icon/components";
         >
             <ul class="nav justify-content-end h-100 align-items-center">
                 <li class="nav-item d-flex align-items-center">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                    >
                         <Icon name="UpArrow" class="inverted-primary-bg" />
                         <span class="tooltip">Move&nbsp;to&nbsp;Top&nbsp;</span>
                     </a>
@@ -53,31 +66,46 @@ import { Icon } from "astro-icon/components";
         <div class="circular-border secondary-bg-color bg-shadow h-100 w-auto">
             <ul class="nav justify-content-end h-100 align-items-center">
                 <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="#about">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                        href="#about"
+                    >
                         <Icon name="Account" />
                         <span class="tooltip">About</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                        href="#career"
+                    >
                         <Icon name="Briefcase" />
                         <span class="tooltip">Career</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                        href="/index.html"
+                    >
                         <Icon name="Skill" />
                         <span class="tooltip">Skills</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                        href="/index.html"
+                    >
                         <Icon name="Code" />
                         <span class="tooltip">Projects</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2 me-2">
-                    <a class="b-nav-link d-flex align-items-center justify-content-center" href="/index.html">
+                    <a
+                        class="b-nav-link d-flex align-items-center justify-content-center"
+                        href="/index.html"
+                    >
                         <Icon name="Contact" />
                         <span class="tooltip">Contact</span>
                     </a>

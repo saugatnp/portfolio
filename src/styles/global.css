@@ -203,6 +203,9 @@ body {
 .primary-text {
     color : var(--dark-text-color)
 }
+.secondary-text {
+    color : var(--secondary-dark-bg-color)
+}
 
 .circular-border {
     border-radius: 50px;
@@ -244,7 +247,7 @@ body {
     border-radius: 10px;
     position: absolute;
     z-index: 100;
-    bottom: 200%;
+    bottom: 130%;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -270,4 +273,8 @@ body {
     /* background-color: var(--dark-text-color); */
     color: var(--primary-dark-bg-color) !important;
     background-color: var(--primary-dark-bg-color);
+}
+.skill-name{
+    border-radius: 10px;
+    padding:3px;
 }

@@ -1,0 +1,50 @@
+[
+    {
+        "companyName": "Mediprocomputers, Kathmandu",
+        "position": "Mid Angular Developer",
+        "startDate": "2023-06",
+        "endDate": "Current",
+        "description": "Improvement of application performance through code optimization. Collaborated with project stakeholders to define scope and meeting strict deadlines. Analyzing and collaborating with DBA to develop efficient queries.",
+        "skillsOrToolsUsed": [
+            "Angular",
+            "JavaScript",
+            "TypeScript",
+            "SQLServer",
+            "Dot.Net",
+            "Git",
+            "Flutter"
+        ]
+    },
+    {
+        "companyName": "Mediprocomputers, Kathmandu",
+        "position": "Junior Angular Developer",
+        "startDate": "2021-12",
+        "endDate": "2023-06",
+        "description": "Development of dynamic user modules. Designing and development of user friendly interfaces. Integrating web application with APIs and back-end services, such as RESTful web service. Developing front-end logic, including implementing new features and functionality, debugging and testing existing code.",
+        "skillsOrToolsUsed": [
+            "Angular",
+            "JavaScript",
+            "TypeScript",
+            "Git",
+            "HTML",
+            "CSS",
+            "Bootstrap",
+            "Figma"
+        ]
+    },
+    {
+        "companyName": "Namsaling High School",
+        "position": "Web Developer",
+        "startDate": "2021-07",
+        "endDate": "2021-07",
+        "description": "Develop dynamic website for the school. Designing and development of user friendly interfaces. Robust backend and frontend development using Laravel.",
+        "skillsOrToolsUsed": [
+            "JavaScript",
+            "Laravel",
+            "HTML",
+            "Bootstrap",
+            "CSS",
+            "Git"
+        ]
+    }
+]
