@@ -1,0 +1,92 @@
+---
+import { readFile } from "fs/promises";
+import ProjectCard from "../components/project-card.astro";
+
+const ProjectsDataPath = new URL(
+    "../../public/assets/jsondata/projects.json",
+    import.meta.url,
+);
+const ProjectsDataBuffer = await readFile(ProjectsDataPath);
+const ProjectsData: Array<ProjectsData> = JSON.parse(
+    ProjectsDataBuffer.toString(),
+) as Array<ProjectsData>;
+
+interface ProjectsData {
+    id: number;
+    banner_img: string;
+    project_name: string;
+    slogan: string;
+    details: string;
+    images: string[];
+    tech_stack: string[];
+}
+---
+
+<div class="row d-flex justify-content-center mt-4">
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-12 col-md-8">
+            <h1 class="text-center index-intro-title primary-text mt-4">
+                My Projects
+            </h1>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center mt-4">
+        <div class="row mt-4">
+            <div class="col-sm-2">&nbsp;</div>
+            <div class="col-sm-8 p-0">
+                <div class="row m-0 p-0 d-flex justify-content-around">
+                    {
+                        ProjectsData.map((data: ProjectsData) => {
+                            return (
+                                <>
+                                    {/* <div
+                                        class="col-sm-3 project-card cursor-pointer zoom mt-3"
+                                        data-project={JSON.stringify(data)}
+                                        data-id={data.id}
+                                    >
+                                        <div class="secondary-bg-color circular-border-sm p-3 h-100 d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img
+                                                    src={
+                                                        "/assets/images/projects_imgs/" +
+                                                        data.banner_img
+                                                    }
+                                                    alt={data.project_name}
+                                                    class="img-fluid"
+                                                />
+                                                <p class="project-grid-name">
+                                                    <b>{data.project_name}</b>
+                                                </p>
+                                            </div>
+
+                                            <p class="project-grid-desc">
+                                                {data.slogan}
+                                            </p>
+                                        </div>
+                                    </div> */}
+                                    <ProjectCard data={data} />
+                                </>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card) => {
+            card.addEventListener("click", (event) => {
+                const projectData = (
+                    event.currentTarget as HTMLElement
+                ).getAttribute("data-project");
+                if (projectData) {
+                    const project = JSON.parse(projectData);
+                    window.location.href = `/project-details?id=${project.id}`;
+                }
+            });
+        });
+    });
+</script>

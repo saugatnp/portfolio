@@ -1,10 +1,10 @@
 [
     {
         "companyName": "Mediprocomputers, Kathmandu",
-        "position": "Mid Angular Developer",
-        "startDate": "2023-06",
+        "position": "Angular Developer",
+        "startDate": "2021-12",
         "endDate": "Current",
-        "description": "Improvement of application performance through code optimization. Collaborated with project stakeholders to define scope and meeting strict deadlines. Analyzing and collaborating with DBA to develop efficient queries.",
+        "description": "Improvement of application performance through code optimization. Collaborated with project stakeholders to define scope and meeting strict deadlines. Analyzing and collaborating with DBA to develop efficient queries.Development of dynamic user modules. Designing and development of user friendly interfaces. Integrating web application with APIs and back-end services, such as RESTful web service. Developing front-end logic, including implementing new features and functionality, debugging and testing existing code.",
         "skillsOrToolsUsed": [
             "Angular",
             "JavaScript",
@@ -12,24 +12,11 @@
             "SQLServer",
             "Dot.Net",
             "Git",
-            "Flutter"
-        ]
-    },
-    {
-        "companyName": "Mediprocomputers, Kathmandu",
-        "position": "Junior Angular Developer",
-        "startDate": "2021-12",
-        "endDate": "2023-06",
-        "description": "Development of dynamic user modules. Designing and development of user friendly interfaces. Integrating web application with APIs and back-end services, such as RESTful web service. Developing front-end logic, including implementing new features and functionality, debugging and testing existing code.",
-        "skillsOrToolsUsed": [
-            "Angular",
-            "JavaScript",
-            "TypeScript",
-            "Git",
             "HTML",
             "CSS",
             "Bootstrap",
-            "Figma"
+            "Figma",
+            "Flutter"
         ]
     },
     {

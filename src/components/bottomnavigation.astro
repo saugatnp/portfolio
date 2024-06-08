@@ -19,6 +19,9 @@ import { Icon } from "astro-icon/components";
         const careerSection = document.getElementById("career");
         const careerLink = document.querySelector('a[href="#career"]');
 
+        const projectsSection = document.getElementById("projects");
+        const projectsLink = document.querySelector('a[href="#projects"]');
+
         const options = {
             root: null,
             threshold: 0.5,
@@ -41,8 +44,9 @@ import { Icon } from "astro-icon/components";
             observer.observe(section);
         };
 
-        createObserver(aboutSection!, aboutLink!);
-        createObserver(careerSection!, careerLink!);
+        aboutSection ? createObserver(aboutSection, aboutLink!) : null;
+        careerSection ? createObserver(careerSection, careerLink!) : null;
+        projectsSection ? createObserver(projectsSection, projectsLink!) : null;
     });
 </script>
 
@@ -86,10 +90,10 @@ import { Icon } from "astro-icon/components";
                 <li class="nav-item d-flex align-items-center ms-2">
                     <a
                         class="b-nav-link d-flex align-items-center justify-content-center"
-                        href="/index.html"
+                        href="#projects"
                     >
-                        <Icon name="Skill" />
-                        <span class="tooltip">Skills</span>
+                        <Icon name="Code" />
+                        <span class="tooltip">Projects</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2">
@@ -97,8 +101,8 @@ import { Icon } from "astro-icon/components";
                         class="b-nav-link d-flex align-items-center justify-content-center"
                         href="/index.html"
                     >
-                        <Icon name="Code" />
-                        <span class="tooltip">Projects</span>
+                        <Icon name="Skill" />
+                        <span class="tooltip">Skills</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2 me-2">

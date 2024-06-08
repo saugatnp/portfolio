@@ -3,6 +3,8 @@ import Bottomnavigation from "../components/bottomnavigation.astro";
 import Header from "../components/header.astro";
 import "../styles/global.css";
 import "bootstrap/dist/css/bootstrap.css";
+const { showBottomNavigation = true } = Astro.props;
+
 ---
 
 <html lang="en">
@@ -14,11 +16,13 @@ import "bootstrap/dist/css/bootstrap.css";
 		<title>Saugat Adhikari</title>
 	</head>
 	<body>
+		<div class="copyright">
+			<p>&copy; Saugat Adhikari. All rights reserved.</p>
+		</div>
 		<div class="body-container d-flex flex-column" id="body-container">
 			<Header />
 			<slot />
 		</div>
-		<Bottomnavigation />
-
+		{ showBottomNavigation && <Bottomnavigation />}
 	</body>
 </html>

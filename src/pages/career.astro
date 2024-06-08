@@ -48,7 +48,7 @@ interface CareerData {
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-sm-6 offset-2 text-secondary text-justify">
+                                <div class="col-sm-6 offset-2 text-secondary text-justify" style="text-align: justify;">
                                     {data.description}
                                 </div>
                             </div>
@@ -57,8 +57,8 @@ interface CareerData {
                                     <div class="row">
                                         {data.skillsOrToolsUsed.map(
                                         (skill: string) => (
-                                            <div class="skill-name primary-text secondary-bg-color w-auto mx-2 mb-2">
-                                                {skill}
+                                            <div class="skill-name text-dark dart-text-bg-color w-auto mx-2 mb-2">
+                                                <b>{skill}</b>
                                             </div>
                                         ),
                                     )}
@@ -69,6 +69,12 @@ interface CareerData {
                     );
                 })
             }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1 offset-8">
+            <p class="index-scroll text-center" style="margin-top:0">S C R O L L</p>         
         </div>
     </div>
 </div>
