@@ -1,7 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
+import { promises as fs } from "fs";
+import path from "path";
+// import { data } from 'public/';
 
 interface IProjectsData {
     id: number;
@@ -12,28 +15,26 @@ interface IProjectsData {
     images: string[];
     tech_stack: string[];
 }
-
-const ProjectsDataPath = new URL(
-    "../../../public/assets/jsondata/projects.json",
-    import.meta.url,
-);
+const ProjectsDataPath = path.join(process.cwd(), "public/assets/jsondata", "projects.json");
 const ProjectsDataBuffer = await readFile(ProjectsDataPath);
 const ProjectsData: Array<IProjectsData> = JSON.parse(
     ProjectsDataBuffer.toString(),
 ) as Array<IProjectsData>;
 
 export async function getStaticPaths() {
-    const fileContent = await readFile(
-        new URL(
-            "../../../public/assets/jsondata/projects.json",
-            import.meta.url,
-        ),
-    );
-    const projectsData = JSON.parse(fileContent.toString());
-    const paths = projectsData.map((project: IProjectsData) => ({
-        params: { projectdetails: project.project_name.toString() },
-    }));
-    return paths;
+    const filePath = path.join(process.cwd(), "public/assets/jsondata", "projects.json");
+
+    try {
+        const fileContent = await fs.readFile(filePath, 'utf-8');
+        const projectsData = JSON.parse(fileContent.toString());
+        const paths = projectsData.map((project: IProjectsData) => ({
+            params: { projectdetails: project.project_name.toString() },
+        }));
+        return paths;
+    } catch (error) {
+        console.error("Error reading projects.json file:", error);
+        throw new Error("Failed to read projects data");
+    }
 }
 
 const { projectdetails } = Astro.params;
