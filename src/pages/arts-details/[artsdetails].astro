@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { readFile, writeFile } from "fs/promises";
+import { promises as fs } from "fs";
+import path from "path";
+import { type IArtsData } from "../arts.astro";
+import { Icon } from "astro-icon/components";
+
+const ArtsDataPath = path.join(
+    process.cwd(),
+    "public/assets/jsondata",
+    "arts.json",
+);
+const ArtsDataBuffer = await readFile(ArtsDataPath);
+const ArtsData: Array<IArtsData> = JSON.parse(
+    ArtsDataBuffer.toString(),
+) as Array<IArtsData>;
+
+export async function getStaticPaths() {
+    const filePath = path.join(
+        process.cwd(),
+        "public/assets/jsondata",
+        "arts.json",
+    );
+
+    try {
+        const fileContent = await fs.readFile(filePath, "utf-8");
+        const ArtsData = JSON.parse(fileContent.toString());
+        const paths = ArtsData.map((art: IArtsData) => ({
+            params: { artsdetails: art.name.toString() },
+        }));
+        return paths;
+    } catch (error) {
+        console.error("Error reading arts.json file:", error);
+        throw new Error("Failed to read arts data");
+    }
+}
+
+const { artsdetails } = Astro.params;
+const art = ArtsData.find((p) => p.name.toString() === artsdetails);
+---
+
+<BaseLayout showBottomNavigation={false}>
+    {
+        art ? (
+            <>
+                <hr class="mt-4" />
+                <div class="row d-flex justify-content-around mb-4">
+                    <div class="col-sm-8 mb-4">
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="row">
+                                    <p>
+                                        <b class="fs-4 primary-text">
+                                            {art.name}&nbsp;,&nbsp;
+                                        </b>
+                                        <i class="fs-6">{art.date}</i>
+                                    </p>
+                                    <p class="ms-2 secondary-bg-color w-auto circular-border-sm">
+                                        Type&nbsp;:&nbsp;{art.type}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="d-flex align-items-center justify-content-end mt-4">
+                                    <div
+                                        class=" circular-border p-2 d-flex justify-content-center cursor-pointer" id="cancel" >
+                                        <Icon
+                                            name="Cancel"
+                                            class="text-white"
+                                            style="transform:scale(2)"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-6 ">
+                                <img
+                                    src={
+                                        "/assets/images/arts_imgs/" +
+                                        art.img_url
+                                    }
+                                    class="img-fluid circular-border-md"
+                                    alt={art.name}
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <p style="text-align:justify">{art.details}</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    <b>Materials&nbsp;Used&nbsp;:&nbsp;</b>
+                                    {art.materials_used.map((material) => (
+                                        <span class="badge bg-secondary me-1">
+                                            {material}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        ) : (
+            <div>Project not found</div>
+        )
+    }
+</BaseLayout>
+<script>
+    document
+                .getElementById("cancel")!
+                .addEventListener("click", function (event) {
+                    window.location.href = "/#arts";
+                });
+</script>

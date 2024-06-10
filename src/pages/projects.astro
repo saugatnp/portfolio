@@ -7,11 +7,11 @@ const ProjectsDataPath = new URL(
     import.meta.url,
 );
 const ProjectsDataBuffer = await readFile(ProjectsDataPath);
-const ProjectsData: Array<ProjectsData> = JSON.parse(
+const ProjectsData: Array<IProjectsData> = JSON.parse(
     ProjectsDataBuffer.toString(),
-) as Array<ProjectsData>;
+) as Array<IProjectsData>;
 
-interface ProjectsData {
+export interface IProjectsData {
     id: number;
     banner_img: string;
     project_name: string;
@@ -36,34 +36,9 @@ interface ProjectsData {
             <div class="col-sm-8 p-0">
                 <div class="row m-0 p-0 d-flex justify-content-around">
                     {
-                        ProjectsData.map((data: ProjectsData) => {
+                        ProjectsData.map((data: IProjectsData) => {
                             return (
                                 <>
-                                    {/* <div
-                                        class="col-sm-3 project-card cursor-pointer zoom mt-3"
-                                        data-project={JSON.stringify(data)}
-                                        data-id={data.id}
-                                    >
-                                        <div class="secondary-bg-color circular-border-sm p-3 h-100 d-flex flex-column justify-content-between">
-                                            <div>
-                                                <img
-                                                    src={
-                                                        "/assets/images/projects_imgs/" +
-                                                        data.banner_img
-                                                    }
-                                                    alt={data.project_name}
-                                                    class="img-fluid"
-                                                />
-                                                <p class="project-grid-name">
-                                                    <b>{data.project_name}</b>
-                                                </p>
-                                            </div>
-
-                                            <p class="project-grid-desc">
-                                                {data.slogan}
-                                            </p>
-                                        </div>
-                                    </div> */}
                                     <ProjectCard data={data} />
                                 </>
                             );
@@ -73,20 +48,9 @@ interface ProjectsData {
             </div>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-sm-1 offset-3">
+            <p class="index-scroll text-center" style="margin-top:0">S C R O L L</p>         
+        </div>
+    </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const projectCards = document.querySelectorAll(".project-card");
-        projectCards.forEach((card) => {
-            card.addEventListener("click", (event) => {
-                const projectData = (
-                    event.currentTarget as HTMLElement
-                ).getAttribute("data-project");
-                if (projectData) {
-                    const project = JSON.parse(projectData);
-                    window.location.href = `/project-details?id=${project.id}`;
-                }
-            });
-        });
-    });
-</script>

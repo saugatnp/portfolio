@@ -22,13 +22,21 @@ import { Icon } from "astro-icon/components";
         const projectsSection = document.getElementById("projects");
         const projectsLink = document.querySelector('a[href="#projects"]');
 
+        const artsSection = document.getElementById("arts");
+        const artsLink = document.querySelector('a[href="#arts"]');
+
         const options = {
             root: null,
-            threshold: 0.5,
+            rootMargin: "0px 0px 0% 0px",
+            threshold: 0.1,
         };
 
-        const handleIntersection = (entries : IntersectionObserverEntry[], link : Element) => {
+        const handleIntersection = (
+            entries: IntersectionObserverEntry[],
+            link: Element,
+        ) => {
             entries.forEach((entry) => {
+                console.log(entry.isIntersecting);
                 if (entry.isIntersecting) {
                     link?.classList.add("active-b-nav");
                 } else {
@@ -37,7 +45,7 @@ import { Icon } from "astro-icon/components";
             });
         };
 
-        const createObserver = (section : HTMLElement, link : Element) => {
+        const createObserver = (section: HTMLElement, link: Element) => {
             const observer = new IntersectionObserver((entries) => {
                 handleIntersection(entries, link);
             }, options);
@@ -47,6 +55,7 @@ import { Icon } from "astro-icon/components";
         aboutSection ? createObserver(aboutSection, aboutLink!) : null;
         careerSection ? createObserver(careerSection, careerLink!) : null;
         projectsSection ? createObserver(projectsSection, projectsLink!) : null;
+        artsSection ? createObserver(artsSection, artsLink!) : null;
     });
 </script>
 
@@ -99,10 +108,10 @@ import { Icon } from "astro-icon/components";
                 <li class="nav-item d-flex align-items-center ms-2">
                     <a
                         class="b-nav-link d-flex align-items-center justify-content-center"
-                        href="/index.html"
+                        href="#arts"
                     >
                         <Icon name="Skill" />
-                        <span class="tooltip">Skills</span>
+                        <span class="tooltip">Arts</span>
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center ms-2 me-2">

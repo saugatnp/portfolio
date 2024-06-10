@@ -1,0 +1,52 @@
+---
+const { data } = Astro.props;
+---
+
+<style>
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<div
+    class="col-sm-4 cursor-pointer art-card mt-3"
+    data-project={JSON.stringify(data)}
+    data-id={data.id}
+>
+    <a href={`/arts-details/${data.name}`}>
+        <div
+            class=" circular-border-sm h-100 d-flex flex-column justify-content-between"
+        >
+            <div>
+                <!-- "" + -->
+                <img
+                    src={'/assets/images/arts_imgs/' + data.img_url}
+                    alt={data.name}
+                    class="img-fluid"
+                />
+                
+            </div>
+        </div>
+        <div class="art-card-hover p-0 h-100">
+            <div class="row d-flex flex-column justify-content-around h-100">
+                <div class="col-12">
+                    <br/>
+                    <p class="art-name-hover text-center fs-3">
+                        <b>{data.name}</b>
+                    </p>
+                </div>
+                <div class="col-8 offset-2">
+                    <p class=" text-center fs-5">
+                        <!-- {data.type} -->Materials Used<br/>
+                        {data.materials_used.map((material: string) => (
+                            <span class="badge bg-secondary me-1">
+                                {material}
+                            </span>
+                        ))}
+                    </p>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

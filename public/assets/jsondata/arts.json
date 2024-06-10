@@ -1,0 +1,140 @@
+[
+    {
+        "id" : 1,
+        "name" : "Jack Sparrow",
+        "type" : "Color Sketch",
+        "img_url" : "jack_sparrow.jpg",
+        "details" : "A color sketch of the character jack sparrow from the movie Pirates of the Caribbean",
+        "date" : "2076-12-23",
+        "materials_used" : [
+            "A3 paper",
+            "Color Pencils",
+            "Charcoal",
+            "6B Pencil",
+            "HB Mechanical Pencil",
+            "Blender",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 2,
+        "name" : "Thomas Shelby",
+        "type" : "Black & White Sketch",
+        "img_url" : "thomas_shelby.jpg",
+        "details" : "A black and white sketch of the character Thomas Shelby from the TV series Peaky Blinders",
+        "date" : "2077-04-02",
+        "materials_used" : [
+            "A3 Paper",
+            "Charcoal",
+            "HB Mechanical Pencil",
+            "9B Pencil",
+            "6B Pencil",
+            "3B Pencil",
+            "2H Pencil",
+            "Blender",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 3,
+        "name" : "Ragnar Lothbrok",
+        "type" : "Black & White Sketch",
+        "img_url" : "ragnar.jpg",
+        "details" : "A black and white sketch of the character Ragnar Lothbrok from the TV series Vikings",
+        "date" : "2075-11-07",
+        "materials_used" : [
+            "A4 Paper",
+            "Charcoal",
+            "HB Mechanical Pencil",
+            "12B Pencil",
+            "6B Pencil",
+            "3B Pencil",
+            "Blender",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 4,
+        "name" : "A Puff",
+        "type" : "Black & White Sketch",
+        "img_url" : "smoking.jpg",
+        "details" : "A person smoking a cigarette",
+        "date" : "2080-10-06",
+        "materials_used" : [
+            "A4 Paper",
+            "HB Mechanical Pencil",
+            "6B Pencil",
+            "2B Pencil",
+            "1B Pencil",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 5,
+        "name" : "Thinking out loud",
+        "type" : "Color Sketch",
+        "img_url" : "potrait_curly_guy.jpg",
+        "details" : "A color sketch of a curly haired guy in deep thought.",
+        "date" : "2077-09-26",
+        "materials_used" : [
+            "A4 Paper",
+            "Charcoal",
+            "HB Mechanical Pencil",
+            "2B Pencil",
+            "Color Pencils",
+            "Blender",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 6,
+        "name" : "Potrait",
+        "type" : "Color Sketch",
+        "img_url" : "potrait_leather_jacket_guy.jpg",
+        "details" : "A color sketch of a guy in a leather jacket.",
+        "date" : "2077-05-05",
+        "materials_used" : [
+            "A4 Paper",
+            "Charcoal",
+            "HB Mechanical Pencil",
+            "Color Pencils",
+            "6B Pencil",
+            "2B Pencil",
+            "2H Pencil",
+            "Mono zero Eraser"
+        ]
+    },
+    {
+        "id" : 7,
+        "name" : "Highly Detailed Illustration",
+        "type" : "Illustration",
+        "img_url" : "kritesh.jpg",
+        "details" : "An illustration made using Adobe Illustrator.",
+        "date" : "2077-05-06",
+        "materials_used" : [
+            "Adobe Illustrator"
+        ]
+    },
+    {
+        "id" : 8,
+        "name" : "A windy day",
+        "type" : "Illustration",
+        "img_url" : "kri.jpg",
+        "details" : "An illustration of a girl on a windy day made using Adobe Illustrator.",
+        "date" : "2077-02-21",
+        "materials_used" : [
+            "Adobe Illustrator"
+        ]
+    },
+    {
+        "id" : 7,
+        "name" : "Self Illustration",
+        "type" : "Illustration",
+        "img_url" : "saugat.jpg",
+        "details" : "My own illustration.",
+        "date" : "2077-01-07",
+        "materials_used" : [
+            "Adobe Illustrator"
+        ]
+    }
+]

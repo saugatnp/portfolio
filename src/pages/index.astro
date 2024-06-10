@@ -1,41 +1,83 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import About from './about.astro';
-import Career from './career.astro';
-import Projects from './projects.astro';
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import About from "./about.astro";
+import Arts from "./arts.astro";
+import Career from "./career.astro";
+import Projects from "./projects.astro";
 ---
 
 <BaseLayout>
-	
-	<div class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts">
+	<div
+		class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts"
+	>
 		<div class="col-sm-5 offset-2" style="z-index:15;">
-			<p class="index-intro-title primary-text">Hi, my name is <br/> <b>SAUGAT</b>.</p>
-			<p class="index-intro-subtitle">I'm a fullstack developer from Kathmandu, Nepal.</p>
+			<p class="index-intro-title primary-text hi-intro m-0"></p>
+			<p class="index-intro-title primary-text name-intro fw-bold"></p>
+			<p class="index-intro-subtitle subtitle"></p>
 			<p class="index-scroll text-center">S C R O L L</p>
 		</div>
-		<div class="col-sm-3" style="z-index:15;pointer-events:none;user-select: none;">
-			<img src="/assets/images/picture.png" alt="Saugat Adhikari" class="index-img-illustration rounded-circle" />
+		<div
+			class="col-sm-3"
+			style="z-index:15;pointer-events:none;user-select: none;"
+		>
+			<img
+				src="/assets/images/picture.png"
+				alt="Saugat Adhikari"
+				class="index-img-illustration rounded-circle"
+			/>
 		</div>
-		<div class="col-sm-2">
-			&nbsp;
-		</div>
+		<div class="col-sm-2">&nbsp;</div>
 	</div>
-	
+	<script>
 
+		const hi_intro = document.querySelector(".hi-intro");
+		const hi_intro_text = "Hi, my name is";
+
+		const name = document.querySelector(".name-intro");
+		const name_text = "SAUGAT.";
+
+		const subtitle = document.querySelector(".subtitle");
+		const subtitle_text = "I'm a fullstack developer from Kathmandu, Nepal.";
+
+
+		function setIntroText(element: HTMLElement, text: String, index = 0) {
+			if (index == 0) element.textContent = "";
+
+			element.textContent += text[index];
+
+			if (index === text.length - 1 && name?.textContent === '') { 
+				setIntroText(name as HTMLElement, name_text , 0);
+				return;
+			}
+			else if (index === text.length - 1 && subtitle?.textContent === '') { 
+				setIntroText(subtitle as HTMLElement, subtitle_text , 0);
+				return;
+			}
+			else if ( index === text.length - 1) return;
+
+
+			setTimeout(() => {
+				setIntroText(element, text, index + 1);
+			}, 50);
+
+		}
+	
+		setIntroText(hi_intro as HTMLElement, hi_intro_text);
+	</script>
 
 	<section style="margin-top:30vh;margin-bottom:10vh" id="about">
 		<About />
 	</section>
 
-
 	<section style="margin-top:20vh;margin-bottom:10vh" id="career">
 		<Career />
 	</section>
-
 
 	<section style="margin-top:20vh;margin-bottom:10vh" id="projects">
 		<Projects />
 	</section>
 
+	<section style="margin-top:20vh;margin-bottom:10vh" id="arts">
+		<Arts />
+	</section>
 </BaseLayout>

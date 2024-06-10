@@ -1,0 +1,51 @@
+---
+import { readFile } from "fs/promises";
+import  ArtCard from "../components/art-card.astro";
+
+
+const ArtsDataPath = new URL(
+    "../../public/assets/jsondata/arts.json",
+    import.meta.url,
+);
+const ArtsDataBuffer = await readFile(ArtsDataPath);
+const ArtsData: Array<IArtsData> = JSON.parse(
+    ArtsDataBuffer.toString(),
+) as Array<IArtsData>;
+
+export interface IArtsData {
+    id: number;
+    name: string;
+    type: string;
+    img_url: string;
+    details: string;
+    date: string;
+    materials_used: string[];
+}
+---
+
+<div class="row d-flex justify-content-center mt-4">
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-12 col-md-8 mt-4">
+            <h1 class="text-center index-intro-title primary-text mt-4">
+                My Arts
+            </h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="row mt-4 d-flex justify-content-around">
+            <div class="col-sm-9 p-0">
+                <div class="row m-0 p-0 d-flex justify-content-around">
+                    {
+                        ArtsData.map((data: IArtsData) => {
+                            return (
+                                <>
+                                    <ArtCard data={data} />
+                                </>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
