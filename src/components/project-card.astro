@@ -9,13 +9,13 @@ const { data } = Astro.props;
     }
 </style>
 <div
-    class="col-sm-4 project-card cursor-pointer zoom mt-3"
+    class="col-sm-4 project-card cursor-pointer zoom mt-4"
     data-project={JSON.stringify(data)}
     data-id={data.id}
 >
     <a href={`/project-details/${data.project_name}`}>
         <div
-            class="secondary-bg-color circular-border-sm p-3 h-100 d-flex flex-column justify-content-between"
+            class="secondary-bg-color circular-border-sm p-4 h-100 d-flex flex-column justify-content-between" style="border:1px solid gray"
         >
             <div>
                 <img

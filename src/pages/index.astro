@@ -11,9 +11,13 @@ import Projects from "./projects.astro";
 		class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts"
 	>
 		<div class="col-sm-5 offset-2" style="z-index:15;">
-			<p class="index-intro-title primary-text hi-intro m-0"></p>
+			<p class="index-intro-title fs-1 hi-intro m-0"></p>
 			<p class="index-intro-title primary-text name-intro fw-bold"></p>
 			<p class="index-intro-subtitle subtitle"></p>
+			<p class="text-center mt-4 w-25 fs-5 py-2 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
+				<b>Contact&nbsp;Me</b>
+			</p>
+
 			<p class="index-scroll text-center">S C R O L L</p>
 		</div>
 		<div
@@ -29,7 +33,6 @@ import Projects from "./projects.astro";
 		<div class="col-sm-2">&nbsp;</div>
 	</div>
 	<script>
-
 		const hi_intro = document.querySelector(".hi-intro");
 		const hi_intro_text = "Hi, my name is";
 
@@ -37,31 +40,30 @@ import Projects from "./projects.astro";
 		const name_text = "SAUGAT.";
 
 		const subtitle = document.querySelector(".subtitle");
-		const subtitle_text = "I'm a fullstack developer from Kathmandu, Nepal.";
-
+		const subtitle_text =
+			"I'm a fullstack developer from Kathmandu, Nepal.";
 
 		function setIntroText(element: HTMLElement, text: String, index = 0) {
 			if (index == 0) element.textContent = "";
 
 			element.textContent += text[index];
 
-			if (index === text.length - 1 && name?.textContent === '') { 
-				setIntroText(name as HTMLElement, name_text , 0);
+			if (index === text.length - 1 && name?.textContent === "") {
+				setIntroText(name as HTMLElement, name_text, 0);
 				return;
-			}
-			else if (index === text.length - 1 && subtitle?.textContent === '') { 
-				setIntroText(subtitle as HTMLElement, subtitle_text , 0);
+			} else if (
+				index === text.length - 1 &&
+				subtitle?.textContent === ""
+			) {
+				setIntroText(subtitle as HTMLElement, subtitle_text, 0);
 				return;
-			}
-			else if ( index === text.length - 1) return;
-
+			} else if (index === text.length - 1) return;
 
 			setTimeout(() => {
 				setIntroText(element, text, index + 1);
 			}, 50);
-
 		}
-	
+
 		setIntroText(hi_intro as HTMLElement, hi_intro_text);
 	</script>
 

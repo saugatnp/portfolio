@@ -18,37 +18,92 @@ interface CareerData {
     skillsOrToolsUsed: string[];
     description: string;
 }
-
 ---
 
 <div class="row d-flex justify-content-center mt-4">
+    <p class="text-center fs-3 w-auto primary-border circular-border-md primary-text mt-4">
+        MY&nbsp;CAREER
+    </p>
     <div class="row d-flex justify-content-center mt-4">
-        <div class="col-12 col-md-8">
-            <h1 class="text-center index-intro-title primary-text mt-4">
-                My Career
-            </h1>
+        <div class="col-sm-12 col-lg-10 mt-4">
+            <div class="row mt-4">
+                <div class="timeline" id="menu">
+                    {
+                        careerData.map((data: CareerData, index: number) => {
+                            let clss = "right";
+                            if (index % 2 == 0) {
+                                clss = "left";
+                            }
+                            return (
+                                <>
+                                    <div class={"containertime " + clss}>
+                                        <div class="content">
+                                            <div class="row mt-4">
+                                                <div class="col-sm-12 fs-3">
+                                                    {data.position}&nbsp;.&nbsp;
+                                                    <i class="fs-5">
+                                                        {data.companyName}
+                                                    </i>
+                                                </div>
+                                                <div class="col-sm-12 fs-6 light-text d-flex align-items-center">
+                                                    <i>{data.startDate} -{" "}
+                                                        {data.endDate}</i>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4">
+                                                <div
+                                                    class="col-sm-12  fs-6 light-text text-justify"
+                                                    style="text-align: justify;"
+                                                >
+                                                    {data.description}
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        {data.skillsOrToolsUsed.map(
+                                                            (skill: string) => (
+                                                                <div class="skill-name fs-6 text-dark dart-text-bg-color w-auto mx-2 mb-2">
+                                                                    {skill}
+                                                                </div>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <!-- <div class="row d-flex justify-content-center">
         <div class="col-sm-8 offset-1">
             {
                 careerData.map((data: CareerData) => {
                     return (
                         <>
-                        <br/>
-                        <br/>
-                        <br/>
+                            <br />
+                            <br />
+                            <br />
                             <div class="row mt-4">
                                 <div class="col-sm-2 fs-6 light-text d-flex align-items-center">
                                     {data.startDate} - {data.endDate}
                                 </div>
-                                <div class="col-sm-8 fs-2">
+                                <div class="col-sm-8 fs-3">
                                     {data.position}&nbsp;.&nbsp;
                                     <i class="fs-5">{data.companyName}</i>
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-sm-8 offset-2  fs-6 light-text text-justify" style="text-align: justify;">
+                                <div
+                                    class="col-sm-8 offset-2  fs-6 light-text text-justify"
+                                    style="text-align: justify;"
+                                >
                                     {data.description}
                                 </div>
                             </div>
@@ -56,12 +111,12 @@ interface CareerData {
                                 <div class="col-sm-8 offset-2">
                                     <div class="row">
                                         {data.skillsOrToolsUsed.map(
-                                        (skill: string) => (
-                                            <div class="skill-name text-dark dart-text-bg-color w-auto mx-2 mb-2">
-                                                <b>{skill}</b>
-                                            </div>
-                                        ),
-                                    )}
+                                            (skill: string) => (
+                                                <div class="skill-name fs-6 text-dark dart-text-bg-color w-auto mx-2 mb-2">
+                                                    {skill}
+                                                </div>
+                                            ),
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -70,11 +125,13 @@ interface CareerData {
                 })
             }
         </div>
-    </div>
+    </div> -->
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-sm-1 offset-8">
-            <p class="index-scroll text-center" style="margin-top:0">S C R O L L</p>         
+            <p class="index-scroll text-center" style="margin-top:0">
+                S C R O L L
+            </p>
         </div>
-    </div>
+    </div> -->
 </div>

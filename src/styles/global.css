@@ -1,12 +1,12 @@
 :root {
-    --primary-dark-bg-color: #333333;
+    --primary-dark-bg-color: #2a2a2a;
     --secondary-dark-bg-color: #555555;
     --dark-text-color: #a9c52f;
     --light-text-color: #969696;
     --dark-blurred-text-color: #6d6d6d;
     --dark-bg-white: #f8f8f8;
     --dark-box-shadow-color: rgba(36, 36, 36, 0.9);
-    --dark-img-shadow-color: rgba(48, 48, 48, 0.8);
+    --dark-img-shadow-color: rgba(41, 41, 41, 0.8);
 }
 
 
@@ -40,21 +40,23 @@ body {
     user-select: none;
     pointer-events: none;
     height: 4em;
-    margin: 30px 60px;
+    margin: 10px 60px;
 }
+
 @media screen and (max-width: 768px) {
     .logo {
         height: 3em;
         margin: 20px 40px;
     }
-    
+
 }
+
 @media screen and (max-width: 468px) {
     .logo {
         height: 2em;
         margin: 10px 20px;
     }
-    
+
 }
 
 .social-svg-icon {
@@ -125,12 +127,19 @@ body {
 
 .index-intro-midtitle {
     font-size: 3em;
-    font-family: Bitter, serif;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .index-intro-subtitle {
     font-size: 2em;
-    font-family: Bitter, serif;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    /* font-family: Bitter, serif; */
 }
 
 .index-scroll {
@@ -147,7 +156,7 @@ body {
     transform: translateX(-50%);
     width: 0.1em;
     height: 40vh;
-    background-color: var(--dark-blurred-text-color);
+    background-color: var(--dark-text-color);
 }
 
 .copyright {
@@ -158,7 +167,7 @@ body {
     transform-origin: bottom left;
     transform: rotate(-90deg) translateY(100%);
     white-space: nowrap;
-    color: var(--dark-blurred-text-color);
+    color: var(--secondary-dark-bg-color);
 }
 
 .index-texts {
@@ -247,9 +256,14 @@ body {
     color: var(--dark-text-color)
 }
 
+.primary-border {
+    border: 2px solid var(--dark-text-color);
+}
+
 .secondary-text {
     color: var(--secondary-dark-bg-color)
 }
+
 .light-text {
     color: var(--light-text-color)
 }
@@ -359,9 +373,11 @@ body {
 .monitor {
     width: 100%;
     min-height: 70vh;
-    border: solid var(--dark-text-color) 1px;
+    border: solid var(--secondary-dark-bg-color) 1px;
     border-radius: 20px;
     position: relative;
+    background: rgba(0, 0, 0, 0.5);
+
 }
 
 .monitor:after {
@@ -404,4 +420,127 @@ body {
 
 .art-card-hover {
     display: none;
+}
+
+.primary-btn-hover:hover {
+    background-color: var(--dark-text-color);
+    color: var(--primary-dark-bg-color);
+}
+
+
+
+
+.timeline {
+    position: relative;
+    width: 100%;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    background-color: var(--dark-text-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+.containertime {
+    padding: 30px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.containertime::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -14px;
+    background-color: var(--dark-text-color);
+    border: 4px solid white;
+    top: 50px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 50px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid var(--dark-text-color);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--dark-text-color);
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 50px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid var(--dark-text-color);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--dark-text-color) transparent transparent;
+}
+
+.right::after {
+    left: -10px;
+}
+
+.content {
+    padding: 20px 30px;
+    border: 1px solid var(--dark-text-color);
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containertimes */
+    .containertime {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .containertime::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+        left: 15px;
+    }
+
+    /* Make all right containertimes behave like the left ones */
+    .right {
+        left: 0%;
+    }
 }
