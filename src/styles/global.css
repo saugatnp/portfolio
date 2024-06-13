@@ -43,12 +43,81 @@ body {
     margin: 10px 60px;
 }
 
+@media screen and (max-width: 990px) {
+    .index-texts::before {
+        top: 30% !important;
+        left: 50% !important;
+        width: 100% !important;
+        height: 60% !important;
+    }
+
+    .b-nav-link>svg {
+        transform: scale(1.4) !important;
+    }
+    .bottom-nav{
+        left: 50% !important;
+    }
+    .light-text{
+        font-size: 1.15rem !important;
+    }
+    .about-logic-design-spacing{
+        margin-top:5vh !important;
+        padding-bottom: 8vh;
+    }
+    .circular-slant-pattern::before{
+        top:0vh !important;
+        height: 30vw !important;
+        width: 30vw !important;
+    }
+    .about-logo-group {
+        margin-top: 20vh !important;
+        transform: scale(15) !important;
+    }
+    .content {
+        padding: 15px 25px !important;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .logo {
         height: 3em;
         margin: 20px 40px;
     }
 
+    .nav-link>svg {
+        transform: scale(1.4) !important;
+    }
+
+    .index-intro-title {
+        font-size: 3.5rem !important;
+    }
+
+    .index-intro-subtitle {
+        font-size: 1.7rem !important;
+    }
+
+    .index-texts::before {
+        top: 30% !important;
+        left: 50% !important;
+        width: 100% !important;
+        height: 60% !important;
+    }
+    .b-nav-link>svg {
+        transform: scale(1.3) !important;
+    }
+    .bottom-nav{
+        left: 50% !important;
+    }
+    .light-text{
+        font-size: 1.1rem !important;
+    }
+    .content {
+        padding: 10px 20px !important;
+    }
+    .circular-slant-pattern::before{
+        height: 40vw !important;
+        width: 40vw !important;
+    }
 }
 
 @media screen and (max-width: 468px) {
@@ -57,6 +126,40 @@ body {
         margin: 10px 20px;
     }
 
+    .nav-link>svg {
+        transform: scale(1.2) !important;
+    }
+
+    .index-intro-title {
+        font-size: 3rem !important;
+    }
+
+    .index-intro-subtitle {
+        font-size: 1.3rem !important;
+    }
+
+    .index-texts::before {
+        top: 30% !important;
+        left: 50% !important;
+        width: 100% !important;
+        height: 60% !important;
+    }
+    .b-nav-link>svg {
+        transform: scale(1.2) !important;
+    }
+    .bottom-nav{
+        left: 50% !important;
+    }
+    .light-text{
+        font-size: 1rem !important;
+    }
+    .content {
+        padding: 5px 10px !important;
+    }
+    .circular-slant-pattern::before{
+        height: 60vw !important;
+        width: 60vw !important;
+    }
 }
 
 .social-svg-icon {
@@ -72,7 +175,7 @@ body {
 
 .about-logo-group {
     transform: scale(20);
-    z-index: 100;
+    z-index: 19;
     height: auto;
 
 }
@@ -117,7 +220,7 @@ body {
 }
 
 .index-intro-title {
-    font-size: 4.5em;
+    font-size: 4.5rem;
     /* font-family: Bitter, serif; */
     font-family: "Jaro", sans-serif;
     font-optical-sizing: auto;
@@ -155,7 +258,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 0.1em;
-    height: 40vh;
+    height: 25vh;
     background-color: var(--dark-text-color);
 }
 
@@ -163,7 +266,7 @@ body {
     position: absolute;
     bottom: 50px;
     left: 20px;
-    z-index: 2;
+    z-index: 16;
     transform-origin: bottom left;
     transform: rotate(-90deg) translateY(100%);
     white-space: nowrap;
@@ -172,7 +275,7 @@ body {
 
 .index-texts {
     position: relative;
-    min-height: 80vh;
+    /* min-height: 80vh; */
 }
 
 .index-texts::before {
@@ -222,11 +325,13 @@ body {
 
 .bottom-nav {
     position: absolute;
+    display: flex;
+    justify-content: center;
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     height: 3em;
-    width: auto;
+    width: 100%;
 }
 
 .circle {
@@ -265,7 +370,8 @@ body {
 }
 
 .light-text {
-    color: var(--light-text-color)
+    color: var(--light-text-color);
+    font-size: 1.25rem 
 }
 
 .circular-border {
@@ -543,4 +649,8 @@ body {
     .right {
         left: 0%;
     }
+}
+.about-logic-design-spacing{
+    margin-top:15vh !important;
+    padding-bottom: 10vh;
 }

@@ -21,11 +21,11 @@ interface CareerData {
 ---
 
 <div class="row d-flex justify-content-center mt-4">
-    <p class="text-center fs-3 w-auto primary-border circular-border-md primary-text mt-4">
+    <p class="text-center fs-3 w-auto primary-border circular-border-md primary-text">
         MY&nbsp;CAREER
     </p>
-    <div class="row d-flex justify-content-center mt-4">
-        <div class="col-sm-12 col-lg-10 mt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-lg-10">
             <div class="row mt-4">
                 <div class="timeline" id="menu">
                     {
@@ -38,21 +38,21 @@ interface CareerData {
                                 <>
                                     <div class={"containertime " + clss}>
                                         <div class="content">
-                                            <div class="row mt-4">
+                                            <div class="row">
                                                 <div class="col-sm-12 fs-3">
                                                     {data.position}&nbsp;.&nbsp;
                                                     <i class="fs-5">
                                                         {data.companyName}
                                                     </i>
                                                 </div>
-                                                <div class="col-sm-12 fs-6 light-text d-flex align-items-center">
+                                                <div class="col-sm-12 light-text d-flex align-items-center">
                                                     <i>{data.startDate} -{" "}
                                                         {data.endDate}</i>
                                                 </div>
                                             </div>
                                             <div class="row mt-4">
                                                 <div
-                                                    class="col-sm-12  fs-6 light-text text-justify"
+                                                    class="col-sm-12  light-text text-justify"
                                                     style="text-align: justify;"
                                                 >
                                                     {data.description}

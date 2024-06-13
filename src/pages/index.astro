@@ -8,20 +8,23 @@ import Projects from "./projects.astro";
 
 <BaseLayout>
 	<div
-		class="row d-flex flex-grow-1 justify-content-around align-items-center index-texts"
+		class="row d-flex flex-grow-1 pt-4 pt-lg-0 justify-content-around align-items-center index-texts h-auto"
 	>
-		<div class="col-sm-5 offset-2" style="z-index:15;">
+		<div class="col-12 col-lg-5 offset-lg-2 offset-1 mt-4 mt-lg-0" style="z-index:15;">
 			<p class="index-intro-title fs-1 hi-intro m-0"></p>
 			<p class="index-intro-title primary-text name-intro fw-bold"></p>
 			<p class="index-intro-subtitle subtitle"></p>
-			<p class="text-center mt-4 w-25 fs-5 py-2 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
-				<b>Contact&nbsp;Me</b>
-			</p>
+			<div class="row">
+				<div class="col-12 w-auto">
+					<p class="text-center mt-4 w-auto fs-5 py-2 px-4 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
+						<b>Contact&nbsp;Me</b>
+					</p>
+				</div>
+			</div>
 
-			<p class="index-scroll text-center">S C R O L L</p>
 		</div>
 		<div
-			class="col-sm-3"
+			class="col-12 col-lg-3"
 			style="z-index:15;pointer-events:none;user-select: none;"
 		>
 			<img
@@ -32,6 +35,11 @@ import Projects from "./projects.astro";
 		</div>
 		<div class="col-sm-2">&nbsp;</div>
 	</div>
+	<div class="row mt-0 mt-lg-2">
+        <div class="col-sm-2 offset-1 offset-md-3">
+            <p class="index-scroll text-center" style="margin-top:0">S&nbsp;C&nbsp;R&nbsp;O&nbsp;L&nbsp;L</p>         
+        </div>
+    </div>
 	<script>
 		const hi_intro = document.querySelector(".hi-intro");
 		const hi_intro_text = "Hi, my name is";
@@ -75,7 +83,7 @@ import Projects from "./projects.astro";
 		<Career />
 	</section>
 
-	<section style="margin-top:20vh;margin-bottom:10vh" id="projects">
+	<section style="margin-top:0vh;margin-bottom:10vh" id="projects">
 		<Projects />
 	</section>
 
