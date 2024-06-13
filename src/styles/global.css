@@ -76,12 +76,19 @@ body {
     .content {
         padding: 15px 25px !important;
     }
+    .project-grid-name {
+        font-size: 1.1em !important;
+    }
+    .containertime::after {
+        right: -14px !important;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
     .logo {
-        height: 3em;
-        margin: 20px 40px;
+        height: 4em;
+        margin: 10px 40px;
     }
 
     .nav-link>svg {
@@ -118,11 +125,21 @@ body {
         height: 40vw !important;
         width: 40vw !important;
     }
+    .project-grid-name {
+        font-size: 1em !important;
+    }
+    .project-grid-desc {
+        font-size: 0.8em !important;
+    }
+    .copyright {
+        font-size: 0.6rem !important;
+        left: 2px !important;
+    }
 }
 
 @media screen and (max-width: 468px) {
     .logo {
-        height: 2em;
+        height: 4em;
         margin: 10px 20px;
     }
 
@@ -159,6 +176,12 @@ body {
     .circular-slant-pattern::before{
         height: 60vw !important;
         width: 60vw !important;
+    }
+    .project-grid-name {
+        font-size: 0.8em !important;
+    }
+    .project-grid-desc {
+        font-size: 0.6em !important;
     }
 }
 
@@ -265,8 +288,9 @@ body {
 .copyright {
     position: absolute;
     bottom: 50px;
-    left: 20px;
+    left: -2px;
     z-index: 16;
+    font-size: 0.8rem;
     transform-origin: bottom left;
     transform: rotate(-90deg) translateY(100%);
     white-space: nowrap;
@@ -359,6 +383,9 @@ body {
 
 .primary-text {
     color: var(--dark-text-color)
+}
+.primary-dark-text{
+    color : var(--primary-dark-bg-color);
 }
 
 .primary-border {
@@ -621,19 +648,19 @@ body {
 
     /* Place the timelime to the left */
     .timeline::after {
-        left: 31px;
+        left: 20px;
     }
 
     /* Full-width containertimes */
     .containertime {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding-left: 40px;
+        padding-right: 10px;
     }
 
     /* Make sure that all arrows are pointing leftwards */
     .containertime::before {
-        left: 60px;
+        left: 30px;
         border: medium solid white;
         border-width: 10px 10px 10px 0;
         border-color: transparent white transparent transparent;
@@ -642,7 +669,7 @@ body {
     /* Make sure all circles are at the same spot */
     .left::after,
     .right::after {
-        left: 15px;
+        left: -2px;
     }
 
     /* Make all right containertimes behave like the left ones */
