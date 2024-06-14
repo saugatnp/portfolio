@@ -4,6 +4,7 @@ import About from "./about.astro";
 import Arts from "./arts.astro";
 import Career from "./career.astro";
 import Projects from "./projects.astro";
+import Contact from "./contact.astro";
 ---
 
 <BaseLayout>
@@ -16,9 +17,11 @@ import Projects from "./projects.astro";
 			<p class="index-intro-subtitle subtitle"></p>
 			<div class="row">
 				<div class="col-12 w-auto">
-					<p class="text-center mt-4 w-auto fs-5 py-2 px-4 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
-						<b>Contact&nbsp;Me</b>
-					</p>
+					<a href="#contact" class="text-decoration-none">
+						<p class="text-center mt-4 w-auto fs-5 py-2 px-4 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
+							<b>Contact&nbsp;Me</b>
+						</p>
+					</a>
 				</div>
 			</div>
 
@@ -89,5 +92,9 @@ import Projects from "./projects.astro";
 
 	<section style="margin-top:20vh;margin-bottom:10vh" id="arts">
 		<Arts />
+	</section>
+
+	<section style="margin-top:0vh;margin-bottom:10vh" id="contact">
+		<Contact />
 	</section>
 </BaseLayout>

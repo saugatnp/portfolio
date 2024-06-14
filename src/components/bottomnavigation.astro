@@ -25,6 +25,9 @@ import { Icon } from "astro-icon/components";
         const artsSection = document.getElementById("arts");
         const artsLink = document.querySelector('a[href="#arts"]');
 
+        const contactSection = document.getElementById("contact");
+        const contactLink = document.querySelector('a[href="#contact"]');
+
         const options = {
             root: null,
             rootMargin: "0px 0px 0% 0px",
@@ -55,6 +58,7 @@ import { Icon } from "astro-icon/components";
         careerSection ? createObserver(careerSection, careerLink!) : null;
         projectsSection ? createObserver(projectsSection, projectsLink!) : null;
         artsSection ? createObserver(artsSection, artsLink!) : null;
+        contactSection ? createObserver(contactSection, contactLink!) : null;
     });
 </script>
 
@@ -102,7 +106,7 @@ import { Icon } from "astro-icon/components";
                 <li class="nav-item d-flex align-items-center ms-2 me-2">
                     <a
                         class="b-nav-link d-flex align-items-center justify-content-center"
-                        href="/index.html"
+                        href="#contact"
                     >
                         <Icon name="Contact" />
                         <span class="tooltip">Contact</span>
