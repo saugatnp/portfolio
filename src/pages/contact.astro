@@ -15,11 +15,13 @@
 
     <div class="row d-flex justify-content-center m-4">
         <div class="col-12 col-md-8 col-lg-6 primary-border m-4 p-4 circular-border-md">
-            <form
-                action="mailto:saugatnp11@gmail.com"
-                method="post"
+            <form name="contact"
+                method="POST" 
+                data-netlify="true"
                 enctype="text/plain"
             >
+            <input type="hidden" name="contact" value="contact">
+
                 <div class="row mt-4">
                     <label class="primary-text fs-5" for="name">Your Name:</label>
                     <input type="text" id="name" name="name" required />
