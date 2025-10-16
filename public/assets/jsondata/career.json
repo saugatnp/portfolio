@@ -1,10 +1,26 @@
 [
     {
+        "companyName": "ING Tech(ING Group)",
+        "position": "Software Engineer",
+        "startDate": "2025-02",
+        "endDate": "Current",
+        "description": "Developed a reusable, cross-framework Nepali BS Date Picker component using TypeScript and Rollup, enabling seamless integration in projects like Angular, React. Features include a custom calendar UI, date selection in BS format, A D t o B S conversion, multilingual support, and configurable options like weekend rules. Led the development of a custom component library, Nexus, containing packages like BS Date Picker (Chronos), Custom Table (Tabula), and Ul Components (Semino). Published and maintain the library on a private GitLab registry, enabling standardized, reusable components across multiple projects. Developed custom Angular directives and pipes t o format tenant-specific content dynamically, improving consistency and customization across different tenants. Used xJS t o manage form streams and improve reactive programming for data validation and interdependent fields. Maintained and enhanced Student Attendance and Student Enrollment systems, focusing o n fixing legacy bugs, implementing new features, and refactoring inefficient code for better performance and maintainability. Collaborated with cross-functional teams t o ensure proper integration, testing, and rollout o f components and new features across projects.",
+        "skillsOrToolsUsed": [
+            "Angular",
+            "JavaScript",
+            "TypeScript",
+            "CICD",
+            "XLSX",
+            "NPM Library",
+            "Package Registry"
+        ]
+    },
+    {
         "companyName": "Mediprocomputers, Kathmandu",
         "position": "Angular Developer",
         "startDate": "2021-12",
-        "endDate": "Current",
-        "description": "Improvement of application performance through code optimization. Collaborated with project stakeholders to define scope and meeting strict deadlines. Analyzing and collaborating with DBA to develop efficient queries.Development of dynamic user modules. Designing and development of user friendly interfaces. Integrating web application with APIs and back-end services, such as RESTful web service. Developing front-end logic, including implementing new features and functionality, debugging and testing existing code.",
+        "endDate": "2025-01",
+        "description": "Involved in designing and development of a form builder interface using Angular Reactive Forms, allowing users t o define field types, add simple validations, and data store through UI, reducing developer intervention and enabling rapid workflow customization. Built dynamic and conditional forms using Angular Reactive Forms with custom validators, enabling efficient and accurate data entry across various modules. Implementing lazy loading and modular architecture to optimize application performance and reduce load time. Led the migration from Angular 1 2 to Angular 14, modernizing components and implementing custom U l libraries. Integrated JWT-based authentication with role-based route guards and permission checks across the app. Integrated frontend with RESTful APIs and optimized backend interactions through efficient SQL queries i n collaboration with database administrators. Collaborated directly with project stakeholders to define functional scope gather feedback, and deliver modules under tight deadlines. Ensure cross browser compatibility and responsive UI.",
         "skillsOrToolsUsed": [
             "Angular",
             "JavaScript",
