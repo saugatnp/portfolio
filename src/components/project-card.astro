@@ -27,23 +27,6 @@ const { data } = Astro.props;
                 </div>
                 <p class="project-grid-name">
                     {data.project_name}
-                    <!-- <script>
-                        document.addEventListener("DOMContentLoaded", () => {
-                            const projectCards =
-                                document.querySelectorAll(".project-card");
-                            projectCards.forEach((card) => {
-                                card.addEventListener("click", (event) => {
-                                    const projectData = (
-                                        event.currentTarget as HTMLElement
-                                    ).getAttribute("data-project");
-                                    if (projectData) {
-                                        const project = JSON.parse(projectData);
-                                        window.location.href = `/project-details?id=${project.id}`;
-                                    }
-                                });
-                            });
-                        });
-                    </script> -->
                 </p>
             </div>
 
@@ -51,7 +34,7 @@ const { data } = Astro.props;
                 {data.slogan}
             </p>
             <div class="tech-stack-preview mt-2">
-                {data.tech_stack?.slice(0, 3).map((tech: string) => (
+				{data.tech_stack?.slice(0, 3).map((tech: string) => (
                     <span class="tech-pill">{tech}</span>
                 ))}
             </div>

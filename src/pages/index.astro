@@ -11,12 +11,12 @@ import Contact from "./contact.astro";
 	<div
 		class="row d-flex flex-grow-1 pt-4 pt-lg-0 justify-content-around align-items-center index-texts h-auto"
 	>
-		<div class="col-12 col-lg-6 offset-lg-1 offset-1 mt-4 mt-lg-0 hero-block" style="z-index:15;">
+		<div class="col-12 col-lg-6 offset-lg-1 mt-4 mt-lg-0 hero-block px-3 px-lg-0" style="z-index:15;">
 			<p class="index-intro-title fs-3 hi-intro m-0"></p>
 			<p class="index-intro-title primary-text name-intro fw-bold mb-0"></p>
 			<p class="index-intro-subtitle subtitle fs-4"></p>
 			<p class="hero-summary light-text mt-3 mb-0 hero-fade-1">
-				Building scalable workflow platforms with Angular 21, NgRx, and Signals, while integrating backend services with Go, Redis, and AWS S3.
+				Building scalable workflow platforms with Angular&nbsp;21, NgRx, and Signals, while integrating backend services with Go, Redis, and AWS&nbsp;S3.
 			</p>
 			<div class="contact-btn row hero-fade-2">
 				<div class="col-12 w-auto">
@@ -47,38 +47,39 @@ import Contact from "./contact.astro";
         </div>
     </div>
 	<script>
-		const hi_intro = document.querySelector(".hi-intro");
+		const hi_intro = document.querySelector(".hi-intro") as HTMLElement | null;
 		const hi_intro_text = "Hi, I am";
 
-		const name = document.querySelector(".name-intro");
+		const name = document.querySelector(".name-intro") as HTMLElement | null;
 		const name_text = "Saugat Adhikari.";
 
-		const subtitle = document.querySelector(".subtitle");
+		const subtitle = document.querySelector(".subtitle") as HTMLElement | null;
 		const subtitle_text =
 			"Software Engineer.";
 
-		function setIntroText(element: HTMLElement, text: String, index = 0) {
-			if (index == 0) element.textContent = "";
+		function setIntroText(element: HTMLElement, text: string, index = 0) {
+			if (index === 0) element.textContent = "";
 
-			element.textContent += text[index];
+			element.textContent += text[index] ?? "";
 
 			if (index === text.length - 1 && name?.textContent === "") {
 				setIntroText(name as HTMLElement, name_text, 0);
 				return;
-			} else if (
-				index === text.length - 1 &&
-				subtitle?.textContent === ""
-			) {
+			}
+
+			if (index === text.length - 1 && subtitle?.textContent === "") {
 				setIntroText(subtitle as HTMLElement, subtitle_text, 0);
 				return;
-			} else if (index === text.length - 1) return;
+			}
+
+			if (index === text.length - 1) return;
 
 			setTimeout(() => {
 				setIntroText(element, text, index + 1);
 			}, 50);
 		}
 
-		setIntroText(hi_intro as HTMLElement, hi_intro_text);
+		if (hi_intro) setIntroText(hi_intro, hi_intro_text);
 	</script>
 
 	<section class="reveal-on-scroll" style="margin-top:30vh;margin-bottom:10vh" id="about">

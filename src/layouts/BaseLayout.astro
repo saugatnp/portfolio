@@ -24,9 +24,72 @@ const { showBottomNavigation = true } = Astro.props;
 		{ showBottomNavigation && <Bottomnavigation />}
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {
-				const animatedElements = document.querySelectorAll(".reveal-on-scroll");
+				const scrollRoot = document.querySelector(
+					"#body-container",
+				) as HTMLElement | null;
+				const animatedElements = Array.from(
+					document.querySelectorAll<HTMLElement>(".reveal-on-scroll"),
+				);
 
 				if (!animatedElements.length) return;
+
+				const getRootRect = () => {
+					if (scrollRoot instanceof HTMLElement) {
+						return scrollRoot.getBoundingClientRect();
+					}
+					return {
+						top: 0,
+						bottom: window.innerHeight,
+					};
+				};
+
+				const scrollTarget: HTMLElement | Window = scrollRoot ?? window;
+				let fallbackAttached = false;
+
+				function attachFallback() {
+					if (fallbackAttached) return;
+					fallbackAttached = true;
+					scrollTarget.addEventListener("scroll", revealIfInView, { passive: true });
+					window.addEventListener("resize", revealIfInView);
+					window.addEventListener("orientationchange", revealIfInView);
+				}
+
+				function detachFallback() {
+					if (!fallbackAttached) return;
+					fallbackAttached = false;
+					scrollTarget.removeEventListener("scroll", revealIfInView);
+					window.removeEventListener("resize", revealIfInView);
+					window.removeEventListener("orientationchange", revealIfInView);
+				}
+
+				function cleanupIfDone() {
+					const allVisible = animatedElements.every((el) =>
+						el.classList.contains("is-visible"),
+					);
+					if (allVisible) detachFallback();
+				}
+
+				function revealIfInView() {
+					const rootRect = getRootRect();
+					const revealLine =
+						rootRect.bottom - (rootRect.bottom - rootRect.top) * 0.18;
+					animatedElements.forEach((element) => {
+						if (element.classList.contains("is-visible")) return;
+						const rect = element.getBoundingClientRect();
+						const isVisible =
+							rect.top <= revealLine && rect.bottom >= rootRect.top;
+						if (isVisible) element.classList.add("is-visible");
+					});
+					cleanupIfDone();
+				}
+
+				// Fallback for browsers where IntersectionObserver/root scrolling is flaky.
+				attachFallback();
+
+				// Always run once in case the first sections are already in view.
+				revealIfInView();
+
+				if (!("IntersectionObserver" in window)) return;
 
 				const observer = new IntersectionObserver(
 					(entries) => {
@@ -36,8 +99,13 @@ const { showBottomNavigation = true } = Astro.props;
 								observer.unobserve(entry.target);
 							}
 						});
+						cleanupIfDone();
 					},
-					{ threshold: 0.24, rootMargin: "0px 0px -2% 0px" },
+					{
+						threshold: 0.24,
+						root: scrollRoot ?? null,
+						rootMargin: "0px 0px -2% 0px",
+					},
 				);
 
 				animatedElements.forEach((element) => observer.observe(element));
