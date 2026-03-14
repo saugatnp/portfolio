@@ -1,15 +1,9 @@
 ---
-import { readFile } from "fs/promises";
 import ProjectCard from "../components/project-card.astro";
 
-const ProjectsDataPath = new URL(
-    "../../public/assets/jsondata/projects.json",
-    import.meta.url,
-);
-const ProjectsDataBuffer = await readFile(ProjectsDataPath);
-const ProjectsData: Array<IProjectsData> = JSON.parse(
-    ProjectsDataBuffer.toString(),
-) as Array<IProjectsData>;
+import projectsDataRaw from "../data/projects.json";
+
+const ProjectsData = projectsDataRaw as Array<IProjectsData>;
 
 export interface IProjectsData {
     id: number;
@@ -25,6 +19,9 @@ export interface IProjectsData {
 <div class="row d-flex justify-content-center">
     <p class="text-center fs-3 w-auto primary-border circular-border-md primary-text">
         MY&nbsp;PROJECTS
+    </p>
+    <p class="text-center section-subtitle px-3">
+        Selected work focused on workflow systems, enterprise products, and practical software delivery.
     </p>
     <div class="row d-flex align-items-center justify-content-center">
         <div class="row d-flex justify-content-center">

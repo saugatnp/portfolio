@@ -22,6 +22,27 @@ const { showBottomNavigation = true } = Astro.props;
 			<slot />
 		</div>
 		{ showBottomNavigation && <Bottomnavigation />}
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const animatedElements = document.querySelectorAll(".reveal-on-scroll");
+
+				if (!animatedElements.length) return;
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-visible");
+								observer.unobserve(entry.target);
+							}
+						});
+					},
+					{ threshold: 0.24, rootMargin: "0px 0px -2% 0px" },
+				);
+
+				animatedElements.forEach((element) => observer.observe(element));
+			});
+		</script>
 	</body>
 	<div class="copyright text-white">
 		<p>&copy; Saugat Adhikari. All rights reserved.</p>

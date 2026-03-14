@@ -1,43 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { readFile, writeFile } from "fs/promises";
-import { promises as fs } from "fs";
-import path from "path";
 import { type IArtsData } from "../arts.astro";
 import { Icon } from "astro-icon/components";
 
-const ArtsDataPath = path.join(
-    process.cwd(),
-    "public/assets/jsondata",
-    "arts.json",
-);
-const ArtsDataBuffer = await readFile(ArtsDataPath);
-const ArtsData: Array<IArtsData> = JSON.parse(
-    ArtsDataBuffer.toString(),
-) as Array<IArtsData>;
+import artsDataRaw from "../../data/arts.json";
+
+const artsData = artsDataRaw as Array<IArtsData>;
 
 export async function getStaticPaths() {
-    const filePath = path.join(
-        process.cwd(),
-        "public/assets/jsondata",
-        "arts.json",
-    );
-
-    try {
-        const fileContent = await fs.readFile(filePath, "utf-8");
-        const ArtsData = JSON.parse(fileContent.toString());
-        const paths = ArtsData.map((art: IArtsData) => ({
-            params: { artsdetails: art.name.toString() },
-        }));
-        return paths;
-    } catch (error) {
-        console.error("Error reading arts.json file:", error);
-        throw new Error("Failed to read arts data");
-    }
+    const { default: artsDataForPaths } = await import("../../data/arts.json");
+    return (artsDataForPaths as Array<IArtsData>).map((art: IArtsData) => ({
+        params: { artsdetails: art.name.toString() },
+    }));
 }
 
 const { artsdetails } = Astro.params;
-const art = ArtsData.find((p) => p.name.toString() === artsdetails);
+const art = artsData.find((p) => p.name.toString() === artsdetails);
 ---
 
 <BaseLayout showBottomNavigation={false}>

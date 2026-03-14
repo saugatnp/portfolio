@@ -1,16 +1,9 @@
 ---
-import { readFile } from "fs/promises";
 import  ArtCard from "../components/art-card.astro";
 
+import artsDataRaw from "../data/arts.json";
 
-const ArtsDataPath = new URL(
-    "../../public/assets/jsondata/arts.json",
-    import.meta.url,
-);
-const ArtsDataBuffer = await readFile(ArtsDataPath);
-const ArtsData: Array<IArtsData> = JSON.parse(
-    ArtsDataBuffer.toString(),
-) as Array<IArtsData>;
+const ArtsData = artsDataRaw as Array<IArtsData>;
 
 export interface IArtsData {
     id: number;

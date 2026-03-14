@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "banner_img": "nda-redacted.svg",
+        "project_name": "HR Workflow Automation Platform",
+        "slogan": "Visual workflow automation for HR operations",
+        "details": "Built and maintained a workflow automation platform where HR teams define process flows on a visual canvas, configure validation rules, and manage approval criteria. Delivered Angular 21 features with Signals and NgRx, and supported backend integrations for reliable production usage.",
+        "images": [
+            "nda-redacted.svg"
+        ],
+        "tech_stack": [
+            "Angular 21",
+            "NgRx",
+            "Go",
+            "Angular Signals",
+            "TypeScript",
+            "Redis",
+            "AWS S3",
+            "REST APIs",
+            "Git"
+        ]
+    },
+    {
+        "id": 2,
+        "banner_img": "Attendease.png",
+        "project_name": "AttendEase",
+        "slogan": "Multi-tenant student attendance and reporting",
+        "details": "Built features for a multi-tenant attendance and reporting platform, including configurable reports, tenant-specific module behavior, and localized date handling with BS calendar support.",
+        "images": [
+            "Attendease.png"
+        ],
+        "tech_stack": [
+            "Angular",
+            "TypeScript",
+            "RxJS",
+            "Rollup",
+            "JavaScript",
+            "SQL Server",
+            "CSS",
+            "Git"
+        ]
+    },
+    {
+        "id": 3,
+        "banner_img": "emedipro_banner.png",
+        "project_name": "eMedipro (Hospital Management System)",
+        "slogan": "Enterprise healthcare operations platform",
+        "details": "Contributed to core modules of a hospital management system, including billing, accounts, pharmacy, inventory, and lab workflows. Focused on API integrations, role-based access control, and reliable delivery for large-scale operations.",
+        "images": [
+            "emedipro_banner.png",
+            "emedipro_one.png"
+        ],
+        "tech_stack": [
+            "Angular",
+            "TypeScript",
+            "SQL Server",
+            "JavaScript",
+            "REST APIs",
+            "CSS",
+            "Git"
+        ]
+    },
+    {
+        "id": 4,
+        "banner_img": "Date_picker_one.png",
+        "project_name": "Nepali BS Date Picker Package",
+        "slogan": "Reusable date package for Nepali calendar workflows",
+        "details": "Built a reusable Nepali BS date picker with TypeScript and Rollup, and integrated it across multiple frontend apps to standardize localized date input behavior.",
+        "images": [
+            "Date_picker_one.png",
+            "Date_picker_two.png",
+            "Date_picker_three.png"
+        ],
+        "tech_stack": [
+            "TypeScript",
+            "Rollup",
+            "JavaScript",
+            "CSS",
+            "Package Development",
+            "Git"
+        ]
+    },
+    {
+        "id": 5,
+        "banner_img": "kes_banner.png",
+        "project_name": "Kathmandu Eye Study (KES)",
+        "slogan": "Custom software for unbiased data collection",
+        "details": "Built custom data-collection software for Tilganga Hospital's research project. Used .NET and SQL Server to implement multiple forms and validation logic to collect study data across districts in Nepal.",
+        "images": [
+            "kes_banner.png"
+        ],
+        "tech_stack": [
+            "Angular",
+            ".NET",
+            "JavaScript",
+            "TypeScript",
+            "SQL Server",
+            "Bootstrap",
+            "CSS",
+            "Bitbucket",
+            "Git",
+            "Postman"
+        ]
+    },
+    {
+        "id": 6,
+        "banner_img": "plagiarism_banner.png",
+        "project_name": "Analysis of Rabin Karp and Knuth Morris Pratt Algorithm for Plagiarism Detection",
+        "slogan": "College final year project",
+        "details": "Built a Next.js app (team of three) to estimate plagiarism degree using Rabin–Karp and KMP with a user-defined threshold. Applied Porter stemming for text processing and used Axios-based web scraping to generate source text for comparison.",
+        "images": [
+            "plagiarism_banner.png",
+            "plagiarism_one.png",
+            "plagiarism_two.png",
+            "plagiarism_three.png",
+            "plagiarism_four.png"
+        ],
+        "tech_stack": [
+            "Next.js",
+            "JavaScript",
+            "CSS",
+            "Bootstrap",
+            "Git",
+            "MySQL"
+        ]
+    },
+    {
+        "id": 7,
+        "banner_img": "Incog_banner.png",
+        "project_name": "Incog",
+        "slogan": "Anonymous real-time chat application",
+        "details": "Built a real-time chat app where users can connect with strangers while staying anonymous. Implemented topic-based matching and identity-safe messaging flows using Socket.IO.",
+        "images": [
+            "Incog_banner.png",
+            "Incog_one.png",
+            "Incog_two.png",
+            "Incog_three.png",
+            "Incog_four.png"
+        ],
+        "tech_stack": [
+            "Node.js",
+            "Socket.IO",
+            "JavaScript",
+            "CSS",
+            "Git"
+        ]
+    },
+    {
+        "id": 8,
+        "banner_img": "ecommerce_banner.png",
+        "project_name": "Pasal",
+        "slogan": "Dynamic e-commerce website",
+        "details": "Built a dynamic e-commerce site where users can browse products, add items to cart, and check out. Implemented admin workflows for managing categories/products, plus search and filtering.",
+        "images": [
+            "ecommerce_banner.png",
+            "ecommerce_one.png",
+            "ecommerce_two.png",
+            "ecommerce_three.png",
+            "ecommerce_four.png"
+        ],
+        "tech_stack": [
+            "PHP",
+            "MySQL",
+            "JavaScript",
+            "CSS",
+            "Bootstrap",
+            "Git"
+        ]
+    }
+]
