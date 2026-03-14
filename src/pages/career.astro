@@ -1,14 +1,7 @@
 ---
-import { readFile } from "fs/promises";
+import careerDataRaw from "../data/career.json";
 
-const careerDataPath = new URL(
-    "../../public/assets/jsondata/career.json",
-    import.meta.url,
-);
-const careerDataBuffer = await readFile(careerDataPath);
-const careerData: Array<CareerData> = JSON.parse(
-    careerDataBuffer.toString(),
-) as Array<CareerData>;
+const careerData = careerDataRaw as Array<CareerData>;
 
 interface CareerData {
     companyName: string;
@@ -24,6 +17,9 @@ interface CareerData {
     <p class="text-center fs-3 w-auto primary-border circular-border-md primary-text">
         MY&nbsp;CAREER
     </p>
+    <p class="text-center section-subtitle px-3">
+        Experience building scalable platforms across HR automation, education products, and healthcare systems.
+    </p>
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10">
             <div class="row mt-4">
@@ -36,7 +32,7 @@ interface CareerData {
                             }
                             return (
                                 <>
-                                    <div class={"containertime " + clss}>
+                                    <div class={"containertime reveal-on-scroll " + clss} style={`transition-delay:${index * 90}ms`}>
                                         <div class="content">
                                             <div class="row">
                                                 <div class="col-sm-12 fs-4">

@@ -11,14 +11,17 @@ import Contact from "./contact.astro";
 	<div
 		class="row d-flex flex-grow-1 pt-4 pt-lg-0 justify-content-around align-items-center index-texts h-auto"
 	>
-		<div class="col-12 col-lg-5 offset-lg-2 offset-1 mt-4 mt-lg-0" style="z-index:15;">
-			<p class="index-intro-title fs-1 hi-intro m-0"></p>
-			<p class="index-intro-title primary-text name-intro fw-bold"></p>
-			<p class="index-intro-subtitle subtitle"></p>
-			<div class="row">
+		<div class="col-12 col-lg-6 offset-lg-1 offset-1 mt-4 mt-lg-0 hero-block" style="z-index:15;">
+			<p class="index-intro-title fs-3 hi-intro m-0"></p>
+			<p class="index-intro-title primary-text name-intro fw-bold mb-0"></p>
+			<p class="index-intro-subtitle subtitle fs-4"></p>
+			<p class="hero-summary light-text mt-3 mb-0 hero-fade-1">
+				Building scalable workflow platforms with Angular 21, NgRx, and Signals, while integrating backend services with Go, Redis, and AWS S3.
+			</p>
+			<div class="contact-btn row hero-fade-2">
 				<div class="col-12 w-auto">
 					<a href="#contact" class="text-decoration-none">
-						<p class="text-center mt-4 w-auto fs-5 py-2 px-4 primary-border circular-border-md primary-text cursor-pointer primary-btn-hover">
+						<p class="text-center mt-4 w-auto fs-5 py-2 px-4 inverted-primary-bg circular-border-md cursor-pointer primary-btn-hover">
 							<b>Contact&nbsp;Me</b>
 						</p>
 					</a>
@@ -27,7 +30,7 @@ import Contact from "./contact.astro";
 
 		</div>
 		<div
-			class="col-12 col-lg-3"
+			class="col-12 col-lg-3 hero-image-block"
 			style="z-index:15;pointer-events:none;user-select: none;"
 		>
 			<img
@@ -45,14 +48,14 @@ import Contact from "./contact.astro";
     </div>
 	<script>
 		const hi_intro = document.querySelector(".hi-intro");
-		const hi_intro_text = "Hi, my name is";
+		const hi_intro_text = "Hi, I am";
 
 		const name = document.querySelector(".name-intro");
-		const name_text = "SAUGAT.";
+		const name_text = "Saugat Adhikari.";
 
 		const subtitle = document.querySelector(".subtitle");
 		const subtitle_text =
-			"I'm a fullstack developer from Kathmandu, Nepal.";
+			"Software Engineer.";
 
 		function setIntroText(element: HTMLElement, text: String, index = 0) {
 			if (index == 0) element.textContent = "";
@@ -78,23 +81,23 @@ import Contact from "./contact.astro";
 		setIntroText(hi_intro as HTMLElement, hi_intro_text);
 	</script>
 
-	<section style="margin-top:30vh;margin-bottom:10vh" id="about">
+	<section class="reveal-on-scroll" style="margin-top:30vh;margin-bottom:10vh" id="about">
 		<About />
 	</section>
 
-	<section style="margin-top:20vh;margin-bottom:10vh" id="career">
+	<section class="reveal-on-scroll" style="margin-top:20vh;margin-bottom:10vh" id="career">
 		<Career />
 	</section>
 
-	<section style="margin-top:0vh;margin-bottom:10vh" id="projects">
+	<section class="reveal-on-scroll" style="margin-top:0vh;margin-bottom:10vh" id="projects">
 		<Projects />
 	</section>
 
-	<section style="margin-top:20vh;margin-bottom:10vh" id="arts">
+	<section class="reveal-on-scroll" style="margin-top:20vh;margin-bottom:10vh" id="arts">
 		<Arts />
 	</section>
 
-	<section style="margin-top:0vh;margin-bottom:10vh" id="contact">
+	<section class="reveal-on-scroll" style="margin-top:0vh;margin-bottom:10vh" id="contact">
 		<Contact />
 	</section>
 </BaseLayout>

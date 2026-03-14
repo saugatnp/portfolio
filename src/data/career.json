@@ -1,0 +1,53 @@
+[
+    {
+        "companyName": "Tekkon Technologies, Kathmandu",
+        "position": "Software Engineer",
+        "startDate": "2026-01",
+        "endDate": "Current",
+        "description": "Building and enhancing an HR workflow automation platform where users configure process steps, validation logic, and approval criteria through a visual canvas. Delivering scalable Angular 21 features using Signals and NgRx, while contributing to backend integrations with Go, Redis, and AWS S3.",
+        "skillsOrToolsUsed": [
+            "Angular 21",
+            "NgRx",
+            "Angular Signals",
+            "Go",
+            "Redis",
+            "AWS S3",
+            "JavaScript",
+            "TypeScript",
+            "REST APIs",
+            "Git"
+        ]
+    },
+    {
+        "companyName": "ING Tech (ING Group), Kathmandu",
+        "position": "Software Engineer",
+        "startDate": "2025-02",
+        "endDate": "2026-01",
+        "description": "Developed reusable frontend packages including a Nepali BS Date Picker built with TypeScript and Rollup. Contributed to multi-tenant attendance and enrollment workflows, component standardization, and production-ready feature delivery in cross-functional teams.",
+        "skillsOrToolsUsed": [
+            "TypeScript",
+            "Rollup",
+            "Angular",
+            "Component Libraries",
+            "Multi-tenant Architecture",
+            "Git"
+        ]
+    },
+    {
+        "companyName": "Mediprocomputers, Kathmandu",
+        "position": "Software Engineer",
+        "startDate": "2021-12",
+        "endDate": "2025-01",
+        "description": "Built dynamic form systems using Angular Reactive Forms with custom validators for clinical and operational workflows. Implemented lazy loading, secure authentication, role-based authorization, and robust API/database integrations across large-scale hospital management modules.",
+        "skillsOrToolsUsed": [
+            "Angular",
+            "Angular Reactive Forms",
+            "JavaScript",
+            "TypeScript",
+            "MSSQL",
+            "REST APIs",
+            "CSS",
+            "Git"
+        ]
+    }
+]

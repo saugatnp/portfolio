@@ -9,20 +9,22 @@ const { data } = Astro.props;
     }
 </style>
 <div
-    class="col-12 col-md-6 col-lg-4 project-card cursor-pointer zoom mt-4"
+    class="col-12 col-md-6 col-lg-4 project-card cursor-pointer zoom mt-4 reveal-up reveal-on-scroll"
     data-project={JSON.stringify(data)}
     data-id={data.id}
 >
     <a href={`/project-details/${data.project_name}`}>
         <div
-            class="secondary-bg-color circular-border-sm p-2 p-lg-4 h-100 d-flex flex-column justify-content-between" style="border:1px solid gray"
+            class="project-card-shell circular-border-sm p-2 p-lg-4 h-100 d-flex flex-column justify-content-between"
         >
             <div>
-                <img
-                    src={"/assets/images/projects_imgs/" + data.banner_img}
-                    alt={data.project_name}
-                    class="img-fluid"
-                />
+                <div class="project-thumb">
+                    <img
+                        src={`/assets/images/projects_imgs/${data.banner_img}`}
+                        alt={data.project_name}
+                        class="img-fluid"
+                    />
+                </div>
                 <p class="project-grid-name">
                     {data.project_name}
                     <!-- <script>
@@ -48,6 +50,11 @@ const { data } = Astro.props;
             <p class="project-grid-desc">
                 {data.slogan}
             </p>
+            <div class="tech-stack-preview mt-2">
+                {data.tech_stack?.slice(0, 3).map((tech: string) => (
+                    <span class="tech-pill">{tech}</span>
+                ))}
+            </div>
         </div>
     </a>
 </div>

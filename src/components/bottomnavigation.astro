@@ -3,62 +3,51 @@ import { Icon } from "astro-icon/components";
 ---
 
 <script>
-    const tgt = document.querySelector("#top-btn");
-    tgt?.addEventListener("click", () => {
-        document
-            .querySelector("#body-container")
-            ?.scrollTo({ top: 0, behavior: "smooth" });
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    });
-
     document.addEventListener("DOMContentLoaded", function () {
-        const aboutSection = document.getElementById("about");
-        const aboutLink = document.querySelector('a[href="#about"]');
+        const scrollRoot = document.querySelector("#body-container");
+        const topBtn = document.querySelector("#top-btn");
+        topBtn?.addEventListener("click", () => {
+            scrollRoot?.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-        const careerSection = document.getElementById("career");
-        const careerLink = document.querySelector('a[href="#career"]');
+        const bottomNav = document.querySelector(".bottom-nav");
+        if (!bottomNav) return;
 
-        const projectsSection = document.getElementById("projects");
-        const projectsLink = document.querySelector('a[href="#projects"]');
+        const getLink = (hash: string) =>
+            bottomNav.querySelector(`a[href="${hash}"]`);
 
-        const artsSection = document.getElementById("arts");
-        const artsLink = document.querySelector('a[href="#arts"]');
-
-        const contactSection = document.getElementById("contact");
-        const contactLink = document.querySelector('a[href="#contact"]');
+        const linkBySectionId = new Map([
+            ["about", getLink("#about")],
+            ["career", getLink("#career")],
+            ["projects", getLink("#projects")],
+            ["arts", getLink("#arts")],
+            ["contact", getLink("#contact")],
+        ]);
 
         const options = {
-            root: null,
+            root: scrollRoot,
             rootMargin: "0px 0px 0% 0px",
-            threshold: 0.1,
+            // Low threshold so large sections (like Contact) can still become active.
+            threshold: 0.01,
         };
 
-        const handleIntersection = (
-            entries: IntersectionObserverEntry[],
-            link: Element,
-        ) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    link?.classList.add("active-b-nav");
-                } else {
-                    link?.classList.remove("active-b-nav");
-                }
+                const sectionId = (entry.target as HTMLElement).id;
+                const link = linkBySectionId.get(sectionId);
+                if (!link) return;
+
+                if (entry.isIntersecting) link.classList.add("active-b-nav");
+                else link.classList.remove("active-b-nav");
             });
-        };
+        }, options);
 
-        const createObserver = (section: HTMLElement, link: Element) => {
-            const observer = new IntersectionObserver((entries) => {
-                handleIntersection(entries, link);
-            }, options);
+        linkBySectionId.forEach((link, sectionId) => {
+            if (!link) return;
+            const section = document.getElementById(sectionId);
+            if (!section) return;
             observer.observe(section);
-        };
-
-        aboutSection ? createObserver(aboutSection, aboutLink!) : null;
-        careerSection ? createObserver(careerSection, careerLink!) : null;
-        projectsSection ? createObserver(projectsSection, projectsLink!) : null;
-        artsSection ? createObserver(artsSection, artsLink!) : null;
-        contactSection ? createObserver(contactSection, contactLink!) : null;
+        });
     });
 </script>
 
